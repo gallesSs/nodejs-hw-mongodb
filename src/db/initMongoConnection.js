@@ -7,7 +7,6 @@ export const initMongoConnection = async () => {
         const name = env("MONGODB_USER");
         const password = env("MONGODB_PASSWORD");
 
-        // Строка подключения без дополнительных данных
         const mongoUri = `mongodb+srv://${name}:${password}@cluster0.y7kxx.mongodb.net/?retryWrites=true&w=majority&appName=${db}`;
 
         await mongoose.connect(mongoUri);
