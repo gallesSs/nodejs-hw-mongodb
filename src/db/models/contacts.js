@@ -1,29 +1,5 @@
 import { model, Schema } from "mongoose";
 
-const contacts = [
-    {
-        name: "John Doe",
-        phoneNumber: "123456789",
-        email: "john.doe@example.com",
-        isFavourite: true,
-        contactType: "work",
-    },
-    {
-        name: "Jane Smith",
-        phoneNumber: "987654321",
-        email: "jane.smith@example.com",
-        isFavourite: false,
-        contactType: "personal",
-    },
-    {
-        name: "David Lee",
-        phoneNumber: "555666777",
-        email: "david.lee@example.com",
-        isFavourite: true,
-        contactType: "home",
-    },
-];
-
 
 const contactsSchema = new Schema({
     name: {
@@ -53,4 +29,4 @@ const contactsSchema = new Schema({
         timestamps: true,
     }
 );
-export const contactsCollection = model(contacts, contactsSchema);
+export const contactsCollection = model('contacts', contactsSchema);
