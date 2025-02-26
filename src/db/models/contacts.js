@@ -24,8 +24,6 @@ const contacts = [
     },
 ];
 
-addContacts(contacts);
-
 
 const contactsSchema = new Schema({
     name: {
