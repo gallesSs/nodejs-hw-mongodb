@@ -6,7 +6,10 @@ export const initMongoConnection = async () => {
         const url = env("MONGODB_URL");
         const db = env("MONGODB_DB");
 
-        await mongoose.connect(`${url}/${db}?retryWrites=true&w=majority&appName=${db}`);
+        // Строка подключения без дополнительных данных
+        const mongoUri = `${url}/${db}?retryWrites=true&w=majority&appName=${db}`;
+
+        await mongoose.connect(mongoUri);
 
         console.log("Mongo connection successfully established!");
     } catch (error) {
