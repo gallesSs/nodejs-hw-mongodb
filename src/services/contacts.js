@@ -1,21 +1,21 @@
 
-import { ContactsCollection } from "../db/models/contacts.js";
+import { contactsCollection } from "../db/models/contacts.js";
 
-export const getAllContacts = () => ContactsCollection.find();
+export const getAllContacts = () => contactsCollection.find();
 
-export const getContactsById = (contactId) => ContactsCollection.findById(contactId);
+export const getContactsById = (contactId) => contactsCollection.findById(contactId);
 
 export const createContact = (payload) => {
-    return ContactsCollection.create(payload);
+    return contactsCollection.create(payload);
 };
 
 export const updateContact = (contactId, payload) => {
-    return ContactsCollection.findByIdAndUpdate(
+    return contactsCollection.findByIdAndUpdate(
         contactId, payload, { new: true }); // чи буде повернуто оновлений документ //
 };
 
 export const deleteContact = (contactId) => {
-    return ContactsCollection.findOneAndDelete({
+    return contactsCollection.findOneAndDelete({
         _id: contactId,
     });
 };
