@@ -13,7 +13,7 @@ const contactsSchema = new Schema({
         type: String,
         required: false,
     },
-    isFavourite: {
+    isFavorite: {
         type: Boolean,
         default: false,
     },
@@ -26,6 +26,7 @@ const contactsSchema = new Schema({
 },
     {
         timestamps: true,
+        versionKey: false,
     }
 );
-export const contactsCollection = model("contacts", contactsSchema);
+export const ContactsCollection = model("contacts", contactsSchema);
