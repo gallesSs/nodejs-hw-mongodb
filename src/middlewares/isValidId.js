@@ -1,14 +1,11 @@
-import { isValidObjectId } from "mongoose";
-import createHttpError from "http-errors";
+import { isValidObjectId } from 'mongoose';
+import createHttpError from 'http-errors';
 
-export const isValidId = (idName = "id") => (req, res, next) => {
-    const id = req.params[idName];
+export const isValidId = (req, res, next) => {
+  const { studentId } = req.params;
+  if (!isValidObjectId(studentId)) {
+    throw createHttpError(400, 'Bad Request');
+  }
 
-    if (!id) {
-        throw createHttpError(400, `Id parameter ${idName} is required`);
-    }
-    if (!isValidObjectId(id)) {
-        return next(createHttpError(400, "Invalid Id format"));
-    }
-    return next();
+  next();
 };

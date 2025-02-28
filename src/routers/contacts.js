@@ -17,16 +17,14 @@ import { isValidId } from "../middlewares/isValidId.js";
 
 const router = express.Router();
 
-const jsonParser = express.json();
-
 router.get("/", ctrlWrapper(getContactsController));
 
-router.get("/:contactId", isValidId("contactId"), ctrlWrapper(getContactByIdController));
+router.get("/:contactId", isValidId, ctrlWrapper(getContactByIdController));
 
-router.post("/", jsonParser, validateBody(createContactSchema), ctrlWrapper(createContactController));
+router.post("/", validateBody(createContactSchema), ctrlWrapper(createContactController));
 
-router.patch("/:contactId", isValidId("contactId"), jsonParser, validateBody(updateContactSchema), ctrlWrapper(patchContactController));
+router.patch("/:contactId", isValidId, validateBody(updateContactSchema), ctrlWrapper(patchContactController));
 
-router.delete("/:contactId", isValidId("contactId"), ctrlWrapper(deleteContactController));
+router.delete("/:contactId", isValidId, ctrlWrapper(deleteContactController));
 
 export default router;
