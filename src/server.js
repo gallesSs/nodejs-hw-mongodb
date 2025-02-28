@@ -12,7 +12,7 @@ const PORT = Number(env(ENV_VARS.PORT, "3000"));
 
 export const setupServer = () => {
     const app = express();
-
+const jsonParser = express.json();
     app.use(cors());
     app.use(pino({
         transport: {
