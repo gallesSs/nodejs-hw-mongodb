@@ -13,16 +13,13 @@ import { ctrlWrapper } from "../utils/ctrlWrapper.js";
 
 
 const router = Router();
-const jsonParser = express.json();
 
 router.post(
     "/register",
-    jsonParser,
     validateBody(registerUserSchema),
     ctrlWrapper(registerUserController));
 router.post(
     "/login",
-    jsonParser,
     validateBody(loginUserSchema),
     ctrlWrapper(loginUserController));
 router.post("/logout", ctrlWrapper(logoutUserController));
