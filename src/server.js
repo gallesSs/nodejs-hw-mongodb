@@ -21,7 +21,7 @@ export const setupServer = () => {
         },
     }),
     );
-    app.use('/auth', router)
+app.use(router);
 
     app.use("*", notFoundHandler);
 
